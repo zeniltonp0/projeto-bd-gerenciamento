@@ -8,6 +8,14 @@ use SebastianBergmann\CodeUnit\FunctionUnit;
 
 class Produto extends Model
 {
+
+    protected $connection = 'mongodb';
+    protected $table = 'produtos';
+    protected $fillable = [
+        'nome',
+        'descricao',
+        'preco'
+    ];
     public function pedidos(){
         return $this->belongsToMany(Pedido::class);
     }

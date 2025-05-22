@@ -8,6 +8,18 @@ use MongoDB\Laravel\Eloquent\Model;
 
 class Pedido extends Model
 {
+
+    protected $connection = 'mongodb';
+    protected $table = 'pedidos';
+    protected $fillable = [
+        'data',
+        'cliente',
+        'endereco',
+        'quantidade',
+        'status',
+        'total'
+    ];
+
     public function produtos(){
         return $this->belongsToMany(Produto::class);
     }
