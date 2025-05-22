@@ -7,5 +7,7 @@ use MongoDB\Laravel\Eloquent\Model;
 
 class Venda extends Model
 {
-    //
+    public function pedido(){
+        return $this->belongsTo(Pedido::class);
+    }
 }

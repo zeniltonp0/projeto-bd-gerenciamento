@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class MateriaPrima extends Model
 {
-    //
+    public function produtos(){
+        return $this->belongsToMany(Produto::class);
+    }
 }
