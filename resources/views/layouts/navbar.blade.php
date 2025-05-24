@@ -28,7 +28,7 @@
                     </span>
                 </a>
                 <a href="{{ route('produtos.index') }}" class="px-4 py-2 bg-white text-gray-800 rounded-full shadow-md hover:bg-stone-300 transition duration-300 ease-in-out">PRODUTOS</a>
-                <a href="#" class="px-4 py-2 bg-white text-gray-800 rounded-full shadow-md hover:bg-stone-300 transition duration-300 ease-in-out">FINANCEIRO</a>
+                <a href="{{ route('financeiro.index') }}" class="px-4 py-2 bg-white text-gray-800 rounded-full shadow-md hover:bg-stone-300 transition duration-300 ease-in-out">FINANCEIRO</a>
             </div>
 
             <div class="flex items-center space-x-4 mt-4 md:mt-0">

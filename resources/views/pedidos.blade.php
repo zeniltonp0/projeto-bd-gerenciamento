@@ -69,16 +69,16 @@
                             <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-900">{{ $pedido->id }}</td>
                             <td class="px-3 py-4 whitespace-nowrap">
                                 {{-- Formatando a data para 'dd/mm/yyyy' --}}
-                                <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-white p-3 text-base" name="data" value="{{ \Carbon\Carbon::parse($pedido->data)->format('d/m/Y') }}">
+                                <span class="block w-full rounded-md bg-white p-3 text-base text-gray-900">{{ \Carbon\Carbon::parse($pedido->data)->format('d/m/Y') }}</span>
                             </td>
                             <td class="px-3 py-4 whitespace-nowrap">
-                                <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-white p-3 text-base" name="cliente" value="{{ $pedido->cliente }}">
+                                <span class="block w-full rounded-md bg-white p-3 text-base text-gray-900">{{ $pedido->cliente }}</span>
                             </td>
                             <td class="px-3 py-4 whitespace-nowrap">
-                                <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-white p-3 text-base" name="endereco" value="{{ $pedido->endereco_entrega }}">
+                                <span class="block w-full rounded-md bg-white p-3 text-base text-gray-900">{{ $pedido->endereco }}</span>
                             </td>
                             <td class="px-3 py-4 whitespace-nowrap">
-                                <input type="number" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-white p-3 text-base" name="quantidade" value="{{ $pedido->quantidade }}">
+                                <span class="block w-full rounded-md bg-white p-3 text-base text-gray-900">{{ $pedido->quantidade }}</span>
                             </td>
                             <td class="px-3 py-4 whitespace-nowrap">
                                 <select class="form-select block w-full rounded-md border-gray-300 shadow-sm bg-white p-3 text-base" name="status">
@@ -89,7 +89,7 @@
                                 </select>
                             </td>
                             <td class="px-3 py-4 whitespace-nowrap">
-                                <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-white p-3 text-base" name="valor" value="{{ number_format($pedido->total, 2, ',', '.') }}">
+                                <span class="block w-full rounded-md bg-white p-3 text-base text-gray-900">R$ {{ number_format($pedido->total, 2, ',', '.') }}</span>
                             </td>
                             <td class="px-3 py-4 whitespace-nowrap text-sm font-medium flex items-center space-x-2">
                                 {{-- Ícone de caneta para edição --}}
@@ -112,10 +112,10 @@
         </div>
 
         <div class="mt-8 text-lg text-gray-700 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 p-4 bg-white rounded-lg shadow-inner">
-            <p class="flex items-center">Total de empadas vendidas: 
+            <p class="flex items-center">Total de empadas vendidas:
                 <span class="ml-2 bg-slate-300 p-2 rounded-md font-semibold text-gray-800 border border-gray-100">150</span>
             </p>
-            <p class="flex items-center">Valor arrecadado: 
+            <p class="flex items-center">Valor arrecadado:
                 <span class="ml-2 bg-slate-300 p-2 rounded-md font-semibold text-gray-800 border border-gray-100">R$ 1.500,00</span>
             </p>
         </div>

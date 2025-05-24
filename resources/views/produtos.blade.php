@@ -1,21 +1,22 @@
-@extends('layouts.navbar') 
+@extends('layouts.navbar')
 
 @section('content')
     <div class="container bg-white p-6 rounded-xl shadow-lg mx-auto my-8">
+        {{-- Container principal da página de pedidos. Centralizado, com preenchimento (padding), cantos arredondados e sombra. --}}
 
         <h2 class="text-4xl font-bold text-gray-800 mb-6 text-center">PRODUTOS CADASTRADOS</h2>
-        
+        {{-- Título da página, estilizado para ser proeminente e centralizado. --}}
 
         <div class="overflow-x-auto rounded-lg shadow-md">
-            
+            {{-- Wrapper para a tabela, permitindo rolagem horizontal em telas menores e adicionando uma sombra. --}}
             <table class="min-w-full divide-y divide-gray-300">
-                
-                <thead class="bg-white"> 
+                {{-- Estrutura principal da tabela com largura mínima total e divisores de linha. --}}
+                <thead class="bg-white"> {{-- Cabeçalho da tabela com fundo branco para a linha de filtros, como na imagem. --}}
                     <tr>
-                        
-                        <form action="#" method="POST" class="contents"> 
+                        {{-- Linha para os inputs de filtro/adição e o botão SALVAR, como na imagem. --}}
+                        <form action="#" method="POST" class="contents"> {{-- O formulário agora envolve a linha de adição para submissão dos dados. --}}
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                
+                                {{-- O campo ID não é mais digitável. Ele exibe "Auto Gerado". --}}
                                 <span class="block w-full rounded-md bg-white p-3 text-base text-gray-500">ID</span>
                             </th>
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -32,7 +33,7 @@
                             </th>
                         </form>
                     </tr>
-                    <tr class="bg-slate-400"> 
+                    <tr class="bg-slate-400"> {{-- Cabeçalho da tabela de fato com fundo marrom escuro (stone-500). --}}
                         <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">ID</th>
                         <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">NOME</th>
                         <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">DESCRIÇÃO</th>
@@ -41,31 +42,31 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    
+                    {{-- Corpo da tabela. --}}
 
-                    
+                    {{-- Seção do corpo da tabela para produtos existentes. --}}
                     @foreach ($produtos as $produto)
-                        
+                        {{-- Loop através de cada item 'produto' fornecido pelo backend. --}}
                         <tr class="bg-slate-100 hover:bg-slate-200 transition duration-150 ease-in-out">
-                            
+                            {{-- Cada linha da tabela tem um fundo marrom muito claro (stone-100), que escurece um pouco ao passar o mouse. --}}
                             <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-900">{{ $produto->id }}</td>
                             <td class="px-3 py-4 whitespace-nowrap">
-                                <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-white p-3 text-base" name="nome" value="{{ $produto->nome }}">
+                                <span class="block w-full rounded-md bg-white p-3 text-base text-gray-900">{{ $produto->nome }}</span>
                             </td>
                             <td class="px-3 py-4 whitespace-nowrap">
-                                <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-white p-3 text-base" name="descricao" value="{{ $produto->descricao }}">
+                                <span class="block w-full rounded-md bg-white p-3 text-base text-gray-900">{{ $produto->descricao }}</span>
                             </td>
                             <td class="px-3 py-4 whitespace-nowrap">
-                                <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-white p-3 text-base" name="preco" value="{{ number_format($produto->preco, 2, ',', '.') }}">
+                                <span class="block w-full rounded-md bg-white p-3 text-base text-gray-900">R$ {{ number_format($produto->preco, 2, ',', '.') }}</span>
                             </td>
                             <td class="px-3 py-4 whitespace-nowrap text-sm font-medium flex items-center space-x-2">
-                                
+                                {{-- Ícone de caneta para edição --}}
                                 <a href="#" class="text-blue-500 hover:text-blue-700 transition duration-300 ease-in-out">
                                     <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                                     </svg>
                                 </a>
-                                
+                                {{-- Ícone de lixeira para exclusão --}}
                                 <a href="#" class="text-red-500 hover:text-red-700 transition duration-300 ease-in-out">
                                     <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
