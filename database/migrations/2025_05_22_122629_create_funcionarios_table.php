@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('funcionarios', function (Blueprint $table) {
-            $table->id();
-            $table->string('nome', length: 100);
-            $table->decimal('diaria', total: 8, places: 2);
-            $table->integer('dias_trabalhados');
-            $table->decimal('salario', total: 8, places: 2);
-            $table->timestamps();
-        });
+        // Schema::create('funcionarios', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('nome', length: 100);
+        //     $table->decimal('diaria', total: 8, places: 2);
+        //     $table->integer('dias_trabalhados');
+        //     $table->decimal('salario', total: 8, places: 2);
+        //     $table->timestamps();
+        // });
     }
 
     /**

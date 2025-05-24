@@ -14,35 +14,36 @@
                 <thead class="bg-white"> {{-- Cabeçalho da tabela com fundo branco para a linha de filtros, como na imagem. --}}
                     <tr>
                         {{-- Linha para os inputs de filtro/adição e o botão SALVAR, como na imagem. --}}
-                        <form action="#" method="POST" class="contents"> {{-- O formulário agora envolve a linha de adição para submissão dos dados. --}}
+                        <form action="{{ route('pedidos.store') }}" method="POST" class="contents">
+                            @csrf 
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                {{-- O campo ID não é mais digitável. Ele exibe "Auto Gerado". --}}
                                 <span class="block w-full rounded-md bg-white p-3 text-base text-gray-500">ID</span>
                             </th>
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-slate-100 p-3 text-base" name="new_data" placeholder="DATA">
+                                <input type="date" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-slate-100 p-3 text-base" name="data" placeholder="DATA">
                             </th>
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-slate-100 p-3 text-base" name="new_cliente" placeholder="CLIENTE">
+                                <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-slate-100 p-3 text-base" name="cliente" placeholder="CLIENTE">
                             </th>
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-slate-100 p-3 text-base" name="new_endereco" placeholder="ENDEREÇO">
+                                <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-slate-100 p-3 text-base" name="endereco" placeholder="ENDEREÇO">
                             </th>
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                <input type="number" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-slate-100 p-3 text-base" name="new_quantidade" placeholder="QUANTIDADE">
+                                <input type="number" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-slate-100 p-3 text-base" name="quantidade" placeholder="QUANTIDADE">
                             </th>
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                <select class="form-select block w-full rounded-md border-gray-300 shadow-sm bg-slate-100 p-3 text-base" name="new_status">
+                                <select class="form-select block w-full rounded-md border-gray-300 shadow-sm bg-slate-100 p-3 text-base" name="status">
                                     <option value="">STATUS</option>
-                                    <option value="Concluído">Feito</option>
-                                    <option value="Pendente">Entregue</option>
-                                    <option value="Em Processamento">Pago</option>
+                                    <option value="Feito">Feito</option>
+                                    <option value="Entregue">Entregue</option>
+                                    <option value="Pago">Pago</option>
                                 </select>
                             </th>
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-slate-100 p-3 text-base" name="new_valor" placeholder="VALOR">
+                                <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-slate-100 p-3 text-base" name="total" placeholder="VALOR">
                             </th>
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                <a href="#"></a>
                                 <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out">SALVAR</button>
                             </th>
                         </form>
@@ -82,12 +83,11 @@
                             </td>
                             <td class="px-3 py-4 whitespace-nowrap">
                                 <select class="form-select block w-full rounded-md border-gray-300 shadow-sm bg-white p-3 text-base" name="status">
-                                    <option value="Concluído" {{ $pedido->status == 'Concluído' ? 'selected' : '' }}>Concluído</option>
-                                    <option value="Pendente" {{ $pedido->status == 'Pendente' ? 'selected' : '' }}>Pendente</option>
-                                    <option value="Em Processamento" {{ $pedido->status == 'Em Processamento' ? 'selected' : '' }}>Em Processamento</option>
-                                    <option value="Cancelado" {{ $pedido->status == 'Cancelado' ? 'selected' : '' }}>Cancelado</option>
+                                    <option value="Feito" {{ $pedido->status == 'Feito' ? 'selected' : '' }}>Feito</option>
+                                    <option value="Entregue" {{ $pedido->status == 'Entregue' ? 'selected' : '' }}>Entregue</option>
+                                    <option value="Pago" {{ $pedido->status == 'Pago' ? 'selected' : '' }}>Pago</option>
                                 </select>
-                            </td>
+                           </td>
                             <td class="px-3 py-4 whitespace-nowrap">
                                 <span class="block w-full rounded-md bg-white p-3 text-base text-gray-900">R$ {{ number_format($pedido->total, 2, ',', '.') }}</span>
                             </td>

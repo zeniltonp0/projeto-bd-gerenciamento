@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pedidos', function (Blueprint $table) {
-            $table->id();
-            $table->dateTime('data', precision: 0)->format('Y-m-d');
-            $table->string('cliente', length: 50);
-            $table->string('endereco', length: 100);
-            $table->integer('quantidade')->unsigned();
-            $table->enum('status', ['feito', 'entregue', 'pago']);
-            $table->decimal('total', total: 8, places: 2);
-            $table->timestamps();
-        });
+        // Schema::create('pedidos', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->dateTime('data', precision: 0)->format('Y-m-d');
+        //     $table->string('cliente', length: 50);
+        //     $table->string('endereco', length: 100);
+        //     $table->integer('quantidade')->unsigned();
+        //     $table->enum('status', ['Feito', 'Entregue', 'Pago']);
+        //     $table->decimal('total', total: 8, places: 2);
+        //     $table->timestamps();
+        // });
     }
 
     /**

@@ -14,21 +14,23 @@
                 <thead class="bg-white"> {{-- Cabeçalho da tabela com fundo branco para a linha de filtros, como na imagem. --}}
                     <tr>
                         {{-- Linha para os inputs de filtro/adição e o botão SALVAR, como na imagem. --}}
-                        <form action="#" method="POST" class="contents"> {{-- O formulário agora envolve a linha de adição para submissão dos dados. --}}
+                        <form action="{{ route('produtos.store') }}" method="POST" class="contents">
+                            @csrf 
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 {{-- O campo ID não é mais digitável. Ele exibe "Auto Gerado". --}}
                                 <span class="block w-full rounded-md bg-white p-3 text-base text-gray-500">ID</span>
                             </th>
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-slate-100 p-3 text-base" name="new_nome" placeholder="NOME">
+                                <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-slate-100 p-3 text-base" name="nome" placeholder="NOME">
                             </th>
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-slate-100 p-3 text-base" name="new_descricao" placeholder="DESCRIÇÃO">
+                                <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-slate-100 p-3 text-base" name="descricao" placeholder="DESCRIÇÃO">
                             </th>
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-slate-100 p-3 text-base" name="new_preco" placeholder="PREÇO">
+                                <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-slate-100 p-3 text-base" name="preco" placeholder="PREÇO">
                             </th>
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                <a href="#"></a>
                                 <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out">SALVAR</button>
                             </th>
                         </form>

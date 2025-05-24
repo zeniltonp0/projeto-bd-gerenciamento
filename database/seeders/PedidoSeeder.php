@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -20,7 +21,7 @@ class PedidoSeeder extends Seeder
             'cliente' => Str::random(10),
             'endereco' => Str::random(10),
             'quantidade' => 10,
-            'status' => 'feito',
+            'status' => Arr::random(['Feito', 'Entregue', 'Pago']),
             'total' => 10.50
         ]);
     }

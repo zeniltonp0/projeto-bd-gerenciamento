@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('materia_primas', function (Blueprint $table) {
-            $table->id();
-            $table->string('nome', length: 100);
-            $table->integer('quantidade')->unsigned();
-            $table->decimal('valor', total: 8, places: 2);
-            $table->dateTime('data', precision: 0)->format('Y-m-d');
-            $table->decimal('valor_total', total: 8, places: 2);
-            $table->timestamps();
-        });
+        // Schema::create('materia_primas', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->string('nome', length: 100);
+        //     $table->integer('quantidade')->unsigned();
+        //     $table->decimal('valor', total: 8, places: 2);
+        //     $table->dateTime('data', precision: 0)->format('Y-m-d');
+        //     $table->decimal('valor_total', total: 8, places: 2);
+        //     $table->timestamps();
+        // });
     }
 
     /**

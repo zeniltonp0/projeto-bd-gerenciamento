@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vendas', function (Blueprint $table) {
-            $table->id();
-            $table->dateTime('data', precision: 0)->format('Y-m-d');
-            $table->string('cliente', length: 50);
-            $table->string('produto', length: 50);
-            $table->integer('quantidade')->unsigned();
-            $table->string('forma-pagamento', length: 100);
-            $table->timestamps();
-        });
+        // Schema::create('vendas', function (Blueprint $table) {
+        //     $table->id();
+        //     $table->dateTime('data', precision: 0)->format('Y-m-d');
+        //     $table->string('cliente', length: 50);
+        //     $table->string('produto', length: 50);
+        //     $table->integer('quantidade')->unsigned();
+        //     $table->string('forma-pagamento', length: 100);
+        //     $table->timestamps();
+        // });
     }
 
     /**
