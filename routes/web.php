@@ -21,3 +21,11 @@ Route::post('/pedidos/store', [PedidoController::class, 'store'])->name('pedidos
 Route::post('/produtos/store', [ProdutoController::class, 'store'])->name('produtos.store');
 Route::post('/financeiro/store', [FinanceiroController::class, 'store'])->name('financeiro.store');
 Route::post('/financeiro/store_mp', [FinanceiroController::class, 'storeMp'])->name('financeiro.store.mp');
+
+Route::get('/financeiro/funcionarios/{funcionario}/edit', [FinanceiroController::class, 'editFuncionario'])->name('financeiro.funcionarios.edit');
+Route::put('/financeiro/funcionarios/{funcionario}', [FinanceiroController::class, 'updateFuncionario'])->name('financeiro.funcionarios.update');
+Route::delete('/financeiro/funcionarios/{funcionario}', [FinanceiroController::class, 'destroyFuncionario'])->name('financeiro.funcionarios.destroy');
+
+Route::get('/financeiro/materiaprima/{materiaPrima}/edit', [FinanceiroController::class, 'editMateriaPrima'])->name('financeiro.materiaprima.edit');
+Route::put('/financeiro/materiaprima/{materiaPrima}', [FinanceiroController::class, 'updateMateriaPrima'])->name('financeiro.materiaprima.update');
+Route::delete('/financeiro/materiaprima/{materiaPrima}', [FinanceiroController::class, 'destroyMateriaPrima'])->name('financeiro.materiaprima.destroy');
