@@ -33,31 +33,30 @@
                 <table class="min-w-full divide-y divide-gray-300">
                     <thead class="bg-white">
                         <tr>
-                            <form action="#" method="POST" class="contents">
+                            <form action="{{ route('financeiro.store') }}" method="POST" class="contents">
+                                @csrf
                                 <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     <span class="block w-full rounded-md border border-gray-100 bg-slate-100 p-3 text-base text-gray-700">ID</span>
                                 </th>
                                 <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
-                                    <input type="text" class="form-input block w-full rounded-md border border-gray-100 shadow-sm bg-slate-100 p-3 text-base text-gray-700" name="new_nome_func" placeholder="NOME">
+                                    <input type="text" class="form-input block w-full rounded-md border border-gray-100 shadow-sm bg-slate-100 p-3 text-base text-gray-700" name="nome" placeholder="NOME">
                                 </th>
                                 <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
-                                    <input type="text" class="form-input block w-full rounded-md border border-gray-100 shadow-sm bg-slate-100 p-3 text-base text-gray-700" name="new_diaria_func" placeholder="DIÁRIA">
+                                    <input type="text" class="form-input block w-full rounded-md border border-gray-100 shadow-sm bg-slate-100 p-3 text-base text-gray-700" name="diaria" placeholder="DIÁRIA">
                                 </th>
                                 <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
-                                    <input type="number" class="form-input block w-full rounded-md border border-gray-100 shadow-sm bg-slate-100 p-3 text-base text-gray-700" name="new_dias_trabalhados_func" placeholder="DIAS TRABALHADOS">
+                                    <input type="number" class="form-input block w-full rounded-md border border-gray-100 shadow-sm bg-slate-100 p-3 text-base text-gray-700" name="dias_trabalhados" placeholder="DIAS TRABALHADOS">
                                 </th>
                                 <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
-                                    <input type="text" class="form-input block w-full rounded-md border border-gray-100 shadow-sm bg-slate-100 p-3 text-base text-gray-700" name="new_salario_func" placeholder="SALÁRIO PAGO">
-                                </th>
-                                <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
-                                    <input type="date" class="form-input block w-full rounded-md border border-gray-100 shadow-sm bg-slate-100 p-3 text-base text-gray-700" name="new_data_func" placeholder="DATA">
+                                    <input type="text" class="form-input block w-full rounded-md border border-gray-100 shadow-sm bg-slate-100 p-3 text-base text-gray-700" name="salario" placeholder="SALÁRIO PAGO">
                                 </th>
                                 <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                    <a href="#"></a>
                                     <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out">SALVAR</button>
                                 </th>
                             </form>
                         </tr>
-                        <tr class="bg-slate-400"> {{-- Cabeçalho da tabela de funcionários com fundo vermelho escuro --}}
+                        <tr class="bg-slate-400"> 
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">ID</th>
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">NOME</th>
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">DIÁRIA</th>
@@ -102,23 +101,25 @@
                 <table class="min-w-full divide-y divide-gray-300">
                     <thead class="bg-white">
                         <tr>
-                            <form action="#" method="POST" class="contents">
+                            <form action="{{ route('financeiro.store.mp') }}" method="POST" class="contents">
+                                @csrf
                                 <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     <span class="block w-full rounded-md border border-sky-50 bg-sky-50 p-3 text-base text-gray-700">ID</span>
                                 </th>
                                 <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-sky-900 uppercase tracking-wider">
-                                    <input type="text" class="form-input block w-full rounded-md border border-sky-50 shadow-sm bg-sky-50 p-3 text-base text-sky-900" name="new_nome_mp" placeholder="NOME">
+                                    <input type="text" class="form-input block w-full rounded-md border border-sky-50 shadow-sm bg-sky-50 p-3 text-base text-sky-900" name="nome" placeholder="NOME">
                                 </th>
                                 <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
-                                    <input type="number" class="form-input block w-full rounded-md border border-sky-50 shadow-sm bg-sky-50 p-3 text-base text-gray-700" name="new_quantidade_mp" placeholder="QUANTIDADE">
+                                    <input type="number" class="form-input block w-full rounded-md border border-sky-50 shadow-sm bg-sky-50 p-3 text-base text-gray-700" name="quantidade" placeholder="QUANTIDADE">
                                 </th>
                                 <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
-                                    <input type="text" class="form-input block w-full rounded-md border border-sky-50 shadow-sm bg-sky-50 p-3 text-base text-gray-700" name="new_custo_mp" placeholder="CUSTO">
+                                    <input type="text" class="form-input block w-full rounded-md border border-sky-50 shadow-sm bg-sky-50 p-3 text-base text-gray-700" name="valor" placeholder="CUSTO">
                                 </th>
                                 <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
-                                    <input type="date" class="form-input block w-full rounded-md border border-sky-50 shadow-sm bg-sky-50 p-3 text-base text-gray-700" name="new_data_mp" placeholder="DATA">
+                                    <input type="date" class="form-input block w-full rounded-md border border-sky-50 shadow-sm bg-sky-50 p-3 text-base text-gray-700" name="data" placeholder="DATA">
                                 </th>
                                 <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
+                                    <a href="#"></a>
                                     <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out">SALVAR</button>
                                 </th>
                             </form>
