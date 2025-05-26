@@ -16,7 +16,7 @@
 <body>
     <div class="min-h-screen flex flex-col items-center py-8 px-4 sm:px-6 lg:px-8">
         
-        <nav class="w-full max-w-6xl bg-slate-400 p-4 rounded-xl shadow-lg flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4 mb-8">
+        <nav class="w-full max-w-7xl bg-slate-400 p-4 rounded-xl shadow-lg flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4 mb-8">
             <div class="flex flex-wrap justify-center md:justify-start items-center space-x-2 sm:space-x-4 w-full md:w-auto">
                 <a href="{{ route('pedidos.index') }}" class="relative px-4 py-2 bg-white text-gray-800 rounded-full shadow-md hover:bg-stone-400 transition duration-300 ease-in-out flex items-center">
                     PEDIDOS
@@ -46,7 +46,7 @@
         </nav>
 
         
-        <main class="w-full max-w-8xl mt-0">
+        <main class="w-full max-w-7xl mt-0">
             @yield('content')
         </main>
     </div>

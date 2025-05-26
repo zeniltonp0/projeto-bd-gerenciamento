@@ -20,8 +20,7 @@
 
                 <div class="mb-8"> 
                     <h4 class="text-xl font-semibold text-gray-700 mb-4">BUSCAR EMPADAS FEITAS</h4>
-                    {{-- Formulário de busca para Empadas Feitas --}}
-                    <form action="{{ route('dashboard.index') }}" method="GET"> {{-- Ação aponta para a rota do dashboard --}}
+                    <form action="{{ route('dashboard.index') }}" method="GET"> 
                         <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
                             <div class="bg-slate-300 rounded-full py-2 px-4 flex items-center space-x-2 w-full sm:w-1/2">
                                 <label for="feito_inicio" class="text-gray-800 font-semibold">INÍCIO:</label>
@@ -42,7 +41,7 @@
                     </form>
                 </div>
 
-                {{-- Tabela de resultados da busca de Empadas Feitas --}}
+                
                 <div class="rounded-lg shadow-md overflow-hidden mt-8"> 
                     <table class="min-w-full">
                         <thead class="bg-cyan-800">
@@ -52,7 +51,7 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white">
-                            @forelse ($pedidosFeitosBuscados as $pedido) {{-- Esta variável virá do DashboardController --}}
+                            @forelse ($pedidosFeitosBuscados as $pedido) 
                                 <tr>
                                     <td class="p-2">
                                         <div class="bg-slate-200 border border-slate-200 rounded-md p-3 text-sm text-gray-900 shadow-sm">{{ \Carbon\Carbon::parse($pedido->data)->format('d/m/Y') }}</div>

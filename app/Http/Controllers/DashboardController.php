@@ -11,16 +11,26 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
         
-        $hoje = Carbon::today()->toDateString(); 
-
-        $empadasFeitasHoje = Pedido::where('status', 'Feito')
-                                   ->whereDate('data', $hoje)
-                                   ->sum('quantidade');
-
+        $hoje = Carbon::today()->format("Y-m-d"); 
         
-        $empadasVendidasHoje = Pedido::where('status', 'Pago')
-                                     ->whereDate('data', $hoje)
-                                     ->sum('quantidade');
+
+         $pedidosFeitasHoje = Pedido::where('status', 'Feito')
+                                   ->where('data', $hoje)
+                                   ->get();
+
+        $empadasFeitasHoje = $pedidosFeitasHoje->map(function ($pedido) {
+            return (int) trim($pedido->quantidade); // Garante que não há espaços e converte para int
+        })->sum();
+
+
+        $pedidosVendidasHoje = Pedido::where('status', 'Pago')
+                                     ->where('data', $hoje)
+                                     ->get();
+
+        // **** ALTERAÇÃO AQUI ****
+        $empadasVendidasHoje = $pedidosVendidasHoje->map(function ($pedido) {
+            return (int) trim($pedido->quantidade); // Garante que não há espaços e converte para int
+        })->sum();
 
         
         $pedidosFeitosBuscados = collect();
