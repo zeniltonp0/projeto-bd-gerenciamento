@@ -117,10 +117,12 @@
 
         <div class="mt-8 text-lg text-gray-700 flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 p-4 bg-white rounded-lg shadow-inner">
             <p class="flex items-center">Total de empadas vendidas:
-                <span class="ml-2 bg-slate-300 p-2 rounded-md font-semibold text-gray-800 border border-gray-100">150</span>
+                <!-- <span class="ml-2 bg-slate-300 p-2 rounded-md font-semibold text-gray-800 border border-gray-100">150</span> -->
+                 <input readonly type="text" class="text-center ml-2 bg-slate-300 p-2 rounded-md font-semibold text-gray-800 border border-gray-100" value="{{ $totalEmpadas }}">
             </p>
             <p class="flex items-center">Valor arrecadado:
-                <span class="ml-2 bg-slate-300 p-2 rounded-md font-semibold text-gray-800 border border-gray-100">R$ 1.500,00</span>
+                <!-- <span class="ml-2 bg-slate-300 p-2 rounded-md font-semibold text-gray-800 border border-gray-100">R$ 1.500,00</span> -->
+                 <input readonly type="text" class="text-center ml-2 bg-slate-300 p-2 rounded-md font-semibold text-gray-800 border border-gray-100" value=" R${{ number_format($totalArrecadado ?? 0, 2, ',', '.') }}">
             </p>
         </div>
     </div>

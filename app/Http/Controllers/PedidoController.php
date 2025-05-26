@@ -11,7 +11,11 @@ class PedidoController extends Controller
 {
     public function index(){
         $pedidos = Pedido::with('produtos')->get();
-        return view('pedidos', compact('pedidos'));
+
+        $totalEmpadas = $pedidos->sum('quantidade');
+        $totalArrecadado = $pedidos->sum('total');
+
+        return view('pedidos', compact(['pedidos', 'totalEmpadas', 'totalArrecadado']));
     }
 
     public function store(Request $request){

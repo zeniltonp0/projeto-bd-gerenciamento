@@ -14,8 +14,10 @@ class FinanceiroController extends Controller
     public function index(){
         $funcionarios = Funcionario::all();  
         $materiasPrima = MateriaPrima::all();
+
+        $custoRealMp = $materiasPrima->sum('valor');
             
-        return view('financeiro', compact(['funcionarios', 'materiasPrima']));
+        return view('financeiro', compact(['funcionarios', 'materiasPrima', 'custoRealMp']));
     }
 
     public function store(Request $request){
