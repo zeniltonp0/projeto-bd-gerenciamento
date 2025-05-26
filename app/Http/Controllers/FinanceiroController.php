@@ -85,13 +85,10 @@ class FinanceiroController extends Controller
     }
 
     public function editMateriaPrima(Request $request, MateriaPrima $materiaPrima){
-
-        return view('financeiro.edit-materiaprima', compact('materiaPrima'));
-
+        return view('edit-materiaprima', compact('materiaPrima'));
     }
 
-    public function updateMateriaPrima(Request $request){
-        $materiaPrima = MateriaPrima::all();
+    public function updateMateriaPrima(Request $request, MateriaPrima $materiaPrima){
 
         $request->validate([
             'nome' => 'required|string|max:100',
