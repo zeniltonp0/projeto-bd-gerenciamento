@@ -14,14 +14,14 @@
             {{-- Custo Esperado de Matéria Prima --}}
             <div class="flex-1 bg-slate-300 p-4 rounded-xl shadow-md border border-gray-200 flex flex-col items-center">
                 <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">CUSTO ESPERADO DE MATERIA PRIMA</h3>
-                <input type="text" class="form-input block w-full rounded-md border border-gray-300 shadow-sm bg-white p-3 text-base text-gray-700 mb-4" placeholder="Valor Esperado" value="#">
+                <input type="text" class="form-input block w-full rounded-md border border-gray-300 shadow-sm bg-white p-3 text-base text-gray-700 mb-4" placeholder="Valor Esperado" value="">
                 <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out">SALVAR</button>
             </div>
 
             {{-- Custo Real de Matéria Prima --}}
             <div class="flex-1 bg-slate-300 p-4 rounded-xl shadow-md border border-gray-200 flex flex-col items-center">
                 <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">CUSTO REAL DE MATERIA PRIMA</h3>
-                <input type="text" class="form-input block w-full rounded-md border border-gray-300 shadow-sm bg-white p-3 text-base text-gray-700 mb-4" placeholder="Custo Real" value="#">
+                <input type="text" class="form-input block w-full rounded-md border border-gray-300 shadow-sm bg-white p-3 text-base text-gray-700 mb-4" placeholder="Custo Real" value="">
                 <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out">SALVAR</button>
             </div>
         </div>
