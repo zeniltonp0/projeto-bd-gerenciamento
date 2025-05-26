@@ -33,3 +33,8 @@ Route::delete('/financeiro/materiaprima/{materiaPrima}', [FinanceiroController::
 Route::get('/produtos/{produto}/edit', [ProdutoController::class, 'edit'])->name('produtos.edit');
 Route::put('/produtos/{produto}', [ProdutoController::class, 'update'])->name('produtos.update');
 Route::delete('/produtos/{produto}', [ProdutoController::class, 'destroy'])->name('produtos.destroy');
+
+
+Route::get('/pedidos/{pedido}/edit', [PedidoController::class, 'edit'])->name('pedidos.edit');
+Route::put('/pedidos/{pedido}', [PedidoController::class, 'update'])->name('pedidos.update');
+Route::delete('/pedidos/{pedido}', [PedidoController::class, 'destroy'])->name('pedidos.destroy');
