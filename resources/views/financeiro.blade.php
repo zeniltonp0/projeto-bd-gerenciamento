@@ -12,10 +12,7 @@
         
         <div class="flex flex-col lg:flex-row lg:space-x-4 space-y-4 lg:space-y-0 mb-8">
             
-            <div class="flex-1 bg-slate-300 p-4 rounded-xl shadow-md border border-gray-200 flex flex-col items-center">
-                <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">CUSTO ESPERADO DE MATÉRIA PRIMA</h3>
-                <input type="text" class="form-input block w-full rounded-md border border-gray-300 shadow-sm bg-white p-3 text-base text-gray-700 mb-4" placeholder="Valor Esperado" value="">
-            </div>
+            
 
             
             <div class="flex-1 bg-slate-300 p-4 rounded-xl shadow-md border border-gray-200 flex flex-col items-center">
@@ -36,29 +33,27 @@
                         <tr>
                             <form action="{{ route('financeiro.store') }}" method="POST" class="contents">
                                 @csrf
-                                <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
-                                    <span class="block w-full rounded-md border border-gray-100 bg-slate-100 p-3 text-base text-gray-700">ID</span>
-                                </th>
+                                
                                 <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
                                     <input type="text" class="form-input block w-full rounded-md border border-gray-100 shadow-sm bg-slate-100 p-3 text-base text-gray-700" name="nome" placeholder="NOME">
                                 </th>
                                 <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
-                                    <input type="text" class="form-input block w-full rounded-md border border-gray-100 shadow-sm bg-slate-100 p-3 text-base text-gray-700" name="diaria" placeholder="DIÁRIA">
+                                    <input type="text" class="form-input block w-full rounded-md border border-gray-100 shadow-sm bg-slate-100 p-3 text-base text-gray-700" name="diaria" id="diaria" placeholder="DIÁRIA">
                                 </th>
                                 <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
-                                    <input type="number" class="form-input block w-full rounded-md border border-gray-100 shadow-sm bg-slate-100 p-3 text-base text-gray-700" name="dias_trabalhados" placeholder="DIAS TRABALHADOS">
+                                    <input type="number" class="form-input block w-full rounded-md border border-gray-100 shadow-sm bg-slate-100 p-3 text-base text-gray-700" name="dias_trabalhados" id="dias_trabalhados" placeholder="DIAS TRABALHADOS">
                                 </th>
                                 <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
-                                    <input type="text" class="form-input block w-full rounded-md border border-gray-100 shadow-sm bg-slate-100 p-3 text-base text-gray-700" name="salario" placeholder="SALÁRIO PAGO">
+                                    <span id="salario_calculado" class="block w-full rounded-md border border-gray-100 shadow-sm bg-slate-100 p-3 text-base text-gray-700">R$ 0,00</span>
+                                    <input type="hidden" name="salario" id="salario_hidden_input">
                                 </th>
                                 <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                    <a href="#"></a>
                                     <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out">SALVAR</button>
                                 </th>
                             </form>
                         </tr>
                         <tr class="bg-slate-400"> 
-                            <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">ID</th>
+                            
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">NOME</th>
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">DIÁRIA</th>
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">DIAS TRABALHADOS</th>
@@ -69,7 +64,7 @@
                     <tbody class="bg-slate-200 divide-y divide-slate-100">
                         @foreach ($funcionarios as $funcionario)
                             <tr>
-                                <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-900">{{ $funcionario->id }}</td>
+                                
                                 <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-900">{{ $funcionario->nome }}</td>
                                 <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-900">R$ {{ number_format($funcionario->diaria, 2, ',', '.') }}</td>
                                 <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-900">{{ $funcionario->dias_trabalhados }}</td>
@@ -108,9 +103,7 @@
                         <tr>
                             <form action="{{ route('financeiro.store.mp') }}" method="POST" class="contents">
                                 @csrf
-                                <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
-                                    <span class="block w-full rounded-md border border-sky-50 bg-sky-50 p-3 text-base text-gray-700">ID</span>
-                                </th>
+                                
                                 <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-sky-900 uppercase tracking-wider">
                                     <input type="text" class="form-input block w-full rounded-md border border-sky-50 shadow-sm bg-sky-50 p-3 text-base text-sky-900" name="nome" placeholder="NOME">
                                 </th>
@@ -124,13 +117,12 @@
                                     <input type="date" class="form-input block w-full rounded-md border border-sky-50 shadow-sm bg-sky-50 p-3 text-base text-gray-700" name="data" placeholder="DATA">
                                 </th>
                                 <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">
-                                    <a href="#"></a>
                                     <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out">SALVAR</button>
                                 </th>
                             </form>
                         </tr>
                         <tr class="bg-sky-800">
-                            <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">ID</th>
+                            
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">NOME</th>
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">QUANTIDADE</th>
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">CUSTO</th>
@@ -141,7 +133,7 @@
                     <tbody class="bg-sky-100 divide-y divide-white">
                         @foreach ($materiasPrima as $materia)
                             <tr>
-                                <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-900">{{ $materia->id }}</td>
+                                
                                 <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-900">{{ $materia->nome }}</td>
                                 <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-900">{{ $materia->quantidade }}</td>
                                 <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-900">R$ {{ number_format($materia->valor, 2, ',', '.') }}</td>
@@ -171,4 +163,29 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const diariaInput = document.getElementById('diaria');
+            const diasTrabalhadosInput = document.getElementById('dias_trabalhados');
+            const salarioCalculadoSpan = document.getElementById('salario_calculado');
+            const salarioHiddenInput = document.getElementById('salario_hidden_input');
+
+            function calculateSalary() {
+                const diaria = parseFloat(diariaInput.value) || 0;
+                const diasTrabalhados = parseInt(diasTrabalhadosInput.value) || 0;
+                const salario = diaria * diasTrabalhados;
+
+                salarioCalculadoSpan.textContent = 'R$ ' + salario.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                salarioHiddenInput.value = salario.toFixed(2); // Armazena como um número com ponto fixo para o backend
+            }
+
+            // Adiciona listeners para acionar o cálculo na mudança dos inputs
+            diariaInput.addEventListener('input', calculateSalary);
+            diasTrabalhadosInput.addEventListener('input', calculateSalary);
+
+            // Cálculo inicial caso haja valores pré-preenchidos (ex: recarregar a página com dados de formulário em cache)
+            calculateSalary();
+        });
+    </script>
 @endsection

@@ -16,9 +16,7 @@
                         
                         <form action="{{ route('pedidos.store') }}" method="POST" class="contents">
                             @csrf 
-                            <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                <span class="block w-full rounded-md bg-white p-3 text-base text-gray-500">ID</span>
-                            </th>
+                            
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 <input type="date" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-slate-100 p-3 text-base" name="data" placeholder="DATA">
                             </th>
@@ -49,7 +47,6 @@
                         </form>
                     </tr>
                     <tr class="bg-slate-400"> 
-                        <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">ID</th>
                         <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">DATA</th>
                         <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">CLIENTE</th>
                         <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">ENDEREÇO</th>
@@ -67,7 +64,7 @@
                         
                         <tr class="bg-slate-100 hover:bg-slate-200 transition duration-150 ease-in-out">
                             
-                            <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-900">{{ $pedido->id }}</td>
+                            
                             <td class="px-3 py-4 whitespace-nowrap">
                                 
                                 <span class="block w-full rounded-md bg-white p-3 text-base text-gray-900">{{ \Carbon\Carbon::parse($pedido->data)->format('d/m/Y') }}</span>

@@ -16,10 +16,7 @@
                         {{-- Linha para os inputs de filtro/adição e o botão SALVAR, como na imagem. --}}
                         <form action="{{ route('produtos.store') }}" method="POST" class="contents">
                             @csrf 
-                            <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                {{-- O campo ID não é mais digitável. Ele exibe "Auto Gerado". --}}
-                                <span class="block w-full rounded-md bg-white p-3 text-base text-gray-500">ID</span>
-                            </th>
+                            
                             <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 <input type="text" class="form-input block w-full rounded-md border-gray-300 shadow-sm bg-slate-100 p-3 text-base" name="nome" placeholder="NOME">
                             </th>
@@ -36,7 +33,6 @@
                         </form>
                     </tr>
                     <tr class="bg-slate-400"> {{-- Cabeçalho da tabela de fato com fundo marrom escuro (stone-500). --}}
-                        <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">ID</th>
                         <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">NOME</th>
                         <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">DESCRIÇÃO</th>
                         <th scope="col" class="px-3 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">PREÇO</th>
@@ -50,8 +46,7 @@
                     @foreach ($produtos as $produto)
                         
                         <tr class="bg-slate-100 hover:bg-slate-200 transition duration-150 ease-in-out">
-                            {{-- Cada linha da tabela tem um fundo marrom muito claro (stone-100), que escurece um pouco ao passar o mouse. --}}
-                            <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-900">{{ $produto->id }}</td>
+                            
                             <td class="px-3 py-4 whitespace-nowrap">
                                 <span class="block w-full rounded-md bg-white p-3 text-base text-gray-900">{{ $produto->nome }}</span>
                             </td>
