@@ -1,26 +1,30 @@
-@extends('layouts.navbar') 
+@extends('layouts.navbar') {{-- Certifique-se de que 'layouts.navbar' existe e contém seu layout base com a barra de navegação --}}
 
 @section('content')
     
     <div class="container bg-white py-12 px-6 rounded-xl shadow-lg mx-auto my-8 max-w-7xl">
         
-
         <h2 class="text-4xl font-bold text-slate-700 mb-8 text-center">RELATÓRIO DIÁRIO</h2> 
 
         <div class="flex flex-col lg:flex-row lg:space-x-8 space-y-8 lg:space-y-0">
             
+            {{-- SEÇÃO EMPADAS FEITAS --}}
             <div class="flex-1 bg-white p-6 rounded-xl shadow-md border border-gray-200">
                 
                 <h3 class="text-2xl font-bold text-white mb-8 flex items-center bg-cyan-800 rounded-full py-3 px-6 justify-between">
                     EMPADAS FEITAS HOJE :
                     <span class="ml-4 bg-white p-2 rounded-full font-semibold text-gray-800 border border-gray-300 min-w-[70px] text-center">
-                        {{ $empadasFeitasHoje }} {{-- Esta variável virá do DashboardController --}}
+                        {{ $empadasFeitasHoje }} 
                     </span>
                 </h3>
 
                 <div class="mb-8"> 
                     <h4 class="text-xl font-semibold text-gray-700 mb-4">BUSCAR EMPADAS FEITAS</h4>
                     <form action="{{ route('dashboard.index') }}" method="GET"> 
+                        {{-- **CAMPOS HIDDEN ADICIONADOS AQUI** para manter o estado da busca de VENDIDAS --}}
+                        <input type="hidden" name="vendido_inicio" value="{{ request('vendido_inicio') }}">
+                        <input type="hidden" name="vendido_fim" value="{{ request('vendido_fim') }}">
+
                         <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
                             <div class="bg-slate-300 rounded-full py-2 px-4 flex items-center space-x-2 w-full sm:w-1/2">
                                 <label for="feito_inicio" class="text-gray-800 font-semibold">INÍCIO:</label>
@@ -80,20 +84,24 @@
                 </div>
             </div>
 
-            
+            {{-- SEÇÃO EMPADAS VENDIDAS --}}
             <div class="flex-1 bg-white p-6 rounded-xl shadow-md border border-gray-200">
                 
                 <h3 class="text-2xl font-bold text-white mb-8 flex items-center bg-rose-800 rounded-full py-3 px-6 justify-between">
                     EMPADAS VENDIDAS HOJE :
                     <span class="ml-4 bg-white p-2 rounded-full font-semibold text-gray-800 border border-gray-300 min-w-[70px] text-center">
-                        {{ $empadasVendidasHoje }} {{-- Esta variável virá do DashboardController --}}
+                        {{ $empadasVendidasHoje }} 
                     </span>
                 </h3>
 
                 <div class="mb-8"> 
                     <h4 class="text-xl font-semibold text-gray-700 mb-4">BUSCAR EMPADAS VENDIDAS</h4>
-                    {{-- Formulário de busca para Empadas Vendidas --}}
-                    <form action="{{ route('dashboard.index') }}" method="GET"> {{-- Ação aponta para a rota do dashboard --}}
+                    
+                    <form action="{{ route('dashboard.index') }}" method="GET"> 
+                        {{-- **CAMPOS HIDDEN ADICIONADOS AQUI** para manter o estado da busca de FEITAS --}}
+                        <input type="hidden" name="feito_inicio" value="{{ request('feito_inicio') }}">
+                        <input type="hidden" name="feito_fim" value="{{ request('feito_fim') }}">
+
                         <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
                             
                             <div class="bg-rose-300 rounded-full py-2 px-4 flex items-center space-x-2 w-full sm:w-1/2">
@@ -115,7 +123,7 @@
                     </form>
                 </div>
 
-                {{-- Tabela de resultados da busca de Empadas Vendidas --}}
+                
                 <div class="rounded-lg shadow-md overflow-hidden mt-8"> 
                     <table class="min-w-full">
                         <thead class="bg-rose-800">
@@ -125,7 +133,7 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white">
-                            @forelse ($pedidosVendidosBuscados as $pedido) {{-- Esta variável virá do DashboardController --}}
+                            @forelse ($pedidosVendidosBuscados as $pedido) 
                                 <tr>
                                     <td class="p-2">
                                         <div class="bg-rose-100 border border-rose-100 rounded-md p-3 text-sm text-gray-900 shadow-sm">{{ \Carbon\Carbon::parse($pedido->data)->format('d/m/Y') }}</div>
